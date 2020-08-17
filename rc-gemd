@@ -1,0 +1,17 @@
+#!/bin/rc
+rc_gemd_dir=/rc/bin/rc-gemd
+path=(/bin $rc_gemd_dir/handlers)
+cr=
+
+url=`{sed 's/'$cr'//;1q'}
+if(~ $url *://*){
+	scheme=`{echo $url | sed 's,://.*,,g'}
+	url=`{echo $url | sed 's,'^$scheme^'://,,'}
+}
+if not
+	scheme='gemini://'
+
+server_name=`{echo $url | sed 's,/.*,,'}
+location=`{echo $url | sed 's,[a-zA-Z0-9.]+/,/,'}
+
+. $rc_gemd_dir/select-handler

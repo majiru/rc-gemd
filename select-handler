@@ -1,0 +1,3 @@
+#!/bin/rc
+fs_root=/lib/gem
+exec serve-static

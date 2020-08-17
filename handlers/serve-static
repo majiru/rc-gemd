@@ -1,0 +1,31 @@
+#!/bin/rc
+full_path=`{echo $"fs_root^$"location | urlencode -d}
+full_path=$"full_path
+
+if(! test -e $full_path){
+	error 41 'file does not exist'
+	exit
+}
+
+if(! test -r $full_path){
+	error 42 'file is not readble'
+	exit
+}
+
+switch($full_path){
+case *.gem *.gemini
+        type=text/gemini
+case *.txt *.md
+        type=text/plain
+case *.jpg *.jpeg
+        type=image/jpeg
+case *.gif
+        type=image/gif
+case *.png
+        type=image/png
+case *
+        type=`{file -m $full_path}
+}
+
+echo 20' '$type^$cr
+cat $full_path
