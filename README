@@ -1,0 +1,16 @@
+rc-gemd is a gemini server inspired by rc-httpd.
+
+The scripts expect to be installed under /rc/bin/rc-gemd.
+
+The following script will allow you to test them before installing:
+ramfs
+mkdir /tmp/rc-gemd
+bind . /tmp/rc-gemd
+bind -b /tmp /rc/bin
+
+or one can change the rc_gemd_dir setting in the script.
+
+The server can be started with a combination of listen(8) and tlssrv(8):
+aux/listen1 tcp!*!1965 tlssrv -c /lib/ssl/gem.pem /rc/bin/rc-gemd/rc-gemd
+
+The instructions for generating TLS certificates can be found in rsa(8).
