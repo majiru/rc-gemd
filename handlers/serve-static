@@ -15,7 +15,9 @@ if(! test -r $full_path){
 switch($full_path){
 case *.gem *.gemini
         type=text/gemini
-case *.txt *.md
+case *.md
+		type=text/markdown
+case *.txt
         type=text/plain
 case *.jpg *.jpeg
         type=image/jpeg
