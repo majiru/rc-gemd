@@ -14,6 +14,9 @@ if not
 server_name=`{echo $url | sed 's,/.*,,'}
 location=`{echo $url | sed 's,[a-zA-Z0-9.:]+/?,/,'}
 
+query=`{echo $location | sed 's,[^?]*\??,,'}
+location=`{echo $location | sed 's,\?.*,,'}
+
 echo request from `{sed 's/!.*//' $net/remote} to $url >[1=2]
 
 . $rc_gemd_dir/select-handler

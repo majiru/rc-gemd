@@ -1,0 +1,5 @@
+#!/bin/rc
+if(~ $query ''){
+	echo 10^' '^$1^$cr
+	exit
+}

@@ -1,5 +1,16 @@
 #!/bin/rc
+fs_root=/lib/gem
 if(~ $location /)
 	location=/index.gem
-fs_root=/lib/gem
+
+if(~ $location /search){
+	. $rc_gemd_dir/handlers/require-input 'Input a search query'
+	echo 20^' '^'text/gemini'^$cr
+	sq=`{echo $query | urlencode -d}
+	ls $fs_root | grep $"sq | sed '
+		s,^'$fs_root'/,,g
+		s,^,=> ,g'
+	exit
+}
+
 exec serve-static
