@@ -12,6 +12,8 @@ if not
 	scheme='gemini://'
 
 server_name=`{echo $url | sed 's,/.*,,'}
-location=`{echo $url | sed 's,[a-zA-Z0-9.]+/,/,'}
+location=`{echo $url | sed 's,[a-zA-Z0-9.:]+/?,/,'}
+
+echo request from `{sed 's/!.*//' $net/remote} to $url >[1=2]
 
 . $rc_gemd_dir/select-handler
