@@ -3,12 +3,12 @@ full_path=`{echo $"fs_root^$"location | urlencode -d}
 full_path=$"full_path
 
 if(! test -e $full_path){
-	error 41 'file does not exist'
+	error 51 'file does not exist'
 	exit
 }
 
 if(! test -r $full_path){
-	error 42 'file is not readble'
+	error 40 'file is not readable'
 	exit
 }
 
