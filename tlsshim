@@ -1,4 +1,0 @@
-#!/bin/rc
-auth/factotum -n
-cat /lib/ssl/gemini.key > /mnt/factotum/ctl
-exec tlssrv -c /lib/ssl/gemini.cert /rc/bin/rc-gemd/rc-gemd
