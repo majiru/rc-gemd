@@ -1,0 +1,8 @@
+#!/bin/rc
+full_path=`{echo $"fs_root^$"location | urlencode -d}
+full_path=$"full_path
+
+echo '20 text/gemini'^$cr
+ls $full_path | sed '
+		s,^'$fs_root'/,,g
+		s,^,=> /,g'

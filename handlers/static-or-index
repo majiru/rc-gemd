@@ -1,0 +1,10 @@
+#!/bin/rc
+full_path=`{echo $"fs_root^$"location | urlencode -d}
+full_path=$"full_path
+if(~ $"location */)
+	exec dir-index
+if(test -d $full_path){
+	location=$location^'/'
+	exec dir-index
+}
+exec serve-static
