@@ -13,7 +13,7 @@ if(! test -r $full_path){
 }
 
 switch($full_path){
-case *.gem *.gemini
+case *.gem *.gemini *.gmi
         type=text/gemini
 case *.md
 		type=text/markdown
