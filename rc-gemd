@@ -16,6 +16,7 @@ location=`{echo $url | sed 's,[a-zA-Z0-9.:]+/?,/,'}
 
 query=`{echo $location | sed 's,[^?]*\??,,'}
 location=`{echo $location | sed 's,\?.*,,'}
+location=`{cleanname $location}
 
 echo request from `{sed 's/!.*//' $net/remote} to $url >[1=2]
 
