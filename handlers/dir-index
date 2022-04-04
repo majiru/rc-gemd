@@ -1,6 +1,10 @@
 #!/bin/rc
 full_path=`{echo $"fs_root^$"location | urlencode -d}
 full_path=$"full_path
+if(! ~ `{cleanname -d$fs_root $full_path} `{cleanname $fs_root}^*){
+	error 53 'path not allowed'
+	exit
+}
 
 echo '20 text/gemini'^$cr
 ls $full_path | sed '
