@@ -1,5 +1,15 @@
 #!/bin/rc
+rfork n
+skel=$rc_gemd_dir^/skel
 fs_root=/lib/gem
+
+bind $fs_root $skel^/pages
+bind /bin $skel^/bin
+bind /rc $skel^/rc
+bind -c '#e' $skel^/env
+bind $skel /
+fs_root=/pages
+
 if(~ $location /)
 	location=/index.gem
 

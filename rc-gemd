@@ -1,4 +1,5 @@
 #!/bin/rc
+rfork E
 rc_gemd_dir=/rc/bin/rc-gemd
 path=(/bin $rc_gemd_dir/handlers)
 cr=
